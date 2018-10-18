@@ -8,7 +8,7 @@ username = os.environ['USERNAME']
 password = os.environ['PASSWORD']
 client = miniflux.Client(miniflux, username, password)
 
-
+# Unread entries notification
 entries = client.get_entries(status="unread", limit=1000, direction="desc")
 
 message = ''
@@ -27,3 +27,4 @@ if message:
         "recipientId": "240963940"
     }
     requests.post(notify_url, json = body)
+
