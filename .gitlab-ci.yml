@@ -1,0 +1,13 @@
+image: python:3
+
+stages:
+  - execute
+
+run:
+  stage: execute
+  script:
+    - pip install pipenv
+    - pipenv install
+    - pipenv run python app.py
+  only:
+    - master
